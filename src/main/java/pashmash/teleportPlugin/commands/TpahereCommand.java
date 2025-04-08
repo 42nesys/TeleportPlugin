@@ -23,12 +23,12 @@ public class TpahereCommand implements CommandExecutor {
                 Player target = player.getServer().getPlayer(args[0]);
                 if (target != null) {
                     teleportManager.sendTeleportRequest(player, target, TeleportType.TPAHERE);
-                    player.sendMessage(ColorUtil.PREFIX + "Teleport request sent to " + target.getName());
+                    player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "Teleport request sent to " + target.getName()));
                 } else {
-                    player.sendMessage(ColorUtil.PREFIX + "That player was not found");
+                    player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "That player was not found"));
                 }
             } else {
-                player.sendMessage(ColorUtil.PREFIX + "Usage: /tpahere <player>");
+                player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "Usage: /tpahere <player>"));
             }
         }
         return true;

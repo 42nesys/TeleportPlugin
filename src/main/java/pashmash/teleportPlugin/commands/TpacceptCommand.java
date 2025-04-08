@@ -20,17 +20,17 @@ public class TpacceptCommand implements CommandExecutor {
             Player player = (Player) sender;
             if (args.length == 0) {
                 if (!teleportManager.acceptTeleportRequest(player)) {
-                    player.sendMessage(ColorUtil.PREFIX + "No teleport request found");
+                    player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "No teleport request found"));
                 } else teleportManager.acceptTeleportRequest(player);
             } else if (args.length == 1) {
                 Player target = player.getServer().getPlayer(args[0]);
                 if (target != null && teleportManager.acceptTeleportRequest(target)) {
-                    player.sendMessage(ColorUtil.PREFIX + "Accepted the teleport request from " + target.getName());
+                    player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "Accepted the teleport request from " + target.getName()));
                 } else {
-                    player.sendMessage(ColorUtil.PREFIX + "No teleport request found from " + args[0]);
+                    player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "No teleport request found from " + args[0]));
                 }
             } else {
-                player.sendMessage(ColorUtil.PREFIX + "Usage: /tpaccept <player>");
+                player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "Usage: /tpaccept <player>"));
             }
         }
         return true;

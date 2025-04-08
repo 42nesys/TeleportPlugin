@@ -23,12 +23,12 @@ public class TpaCommand implements CommandExecutor {
                 Player target = player.getServer().getPlayer(args[0]);
                 if (target != null) {
                     teleportManager.sendTeleportRequest(player, target, TeleportType.TPA);
-                    player.sendMessage(ColorUtil.PREFIX + "Teleport request sent to " + target.getName());
+                    player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "Teleport request sent to " + target.getName()));
                 } else {
-                    player.sendMessage(ColorUtil.PREFIX + "Player was not found");
+                    player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "Player was not found"));
                 }
             } else {
-                player.sendMessage(ColorUtil.PREFIX + "Usage: /tpa <player>");
+                player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "Usage: /tpa <player>"));
             }
         }
         return true;

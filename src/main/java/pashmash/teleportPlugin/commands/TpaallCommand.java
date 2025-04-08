@@ -24,7 +24,7 @@ public class TpaallCommand implements CommandExecutor {
                     teleportManager.sendTeleportRequest(player, target, TeleportType.TPAALL);
                 }
             }
-            player.sendMessage(ColorUtil.PREFIX + "Teleport request sent to all players");
+            player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "Teleport request sent to all players"));
         }
         return true;
     }

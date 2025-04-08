@@ -24,7 +24,7 @@ public class TeleportManager {
         TeleportRequest request = new TeleportRequest(sender, target, type);
         teleportRequests.put(target.getUniqueId(), request);
 
-        target.sendMessage(ColorUtil.PREFIX + sender.getName() + " has requested to teleport to you. Type /tpaccept to accept.");
+        target.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + sender.getName() + " has requested to teleport to you. Type /tpaccept to accept."));
 
         new BukkitRunnable() {
             @Override
@@ -49,7 +49,7 @@ public class TeleportManager {
                     }
                 }
             }
-            target.sendMessage(ColorUtil.PREFIX + "You have accepted the teleport request from " + request.getSender().getName());
+            target.sendMessage(ColorUtil.translate(ColorUtil.PREFIX +  "You have accepted the teleport request from " + request.getSender().getName()));
             return true;
         }
         return false;
