@@ -1,4 +1,4 @@
-package pashmash.teleportPlugin;
+package pashmash.teleportPlugin.util;
 
 public enum TeleportType {
     TPA,

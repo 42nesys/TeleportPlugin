@@ -4,7 +4,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import pashmash.teleportPlugin.TeleportType;
+import pashmash.teleportPlugin.util.ColorUtil;
+import pashmash.teleportPlugin.util.TeleportType;
 import pashmash.teleportPlugin.manager.TeleportManager;
 
 public class TpaallCommand implements CommandExecutor {
@@ -23,7 +24,7 @@ public class TpaallCommand implements CommandExecutor {
                     teleportManager.sendTeleportRequest(player, target, TeleportType.TPAALL);
                 }
             }
-            player.sendMessage("Teleport request sent to all players.");
+            player.sendMessage(ColorUtil.PREFIX + "Teleport request sent to all players");
         }
         return true;
     }

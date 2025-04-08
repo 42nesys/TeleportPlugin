@@ -1,7 +1,7 @@
 package pashmash.teleportPlugin.manager;
 
 import org.bukkit.entity.Player;
-import pashmash.teleportPlugin.TeleportType;
+import pashmash.teleportPlugin.util.TeleportType;
 
 public class TeleportRequest {
     private final Player sender;

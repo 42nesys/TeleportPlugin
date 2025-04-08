@@ -4,7 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import pashmash.teleportPlugin.TeleportPlugin;
-import pashmash.teleportPlugin.TeleportType;
+import pashmash.teleportPlugin.util.ColorUtil;
+import pashmash.teleportPlugin.util.TeleportType;
+import pashmash.teleportPlugin.util.TeleportUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +24,7 @@ public class TeleportManager {
         TeleportRequest request = new TeleportRequest(sender, target, type);
         teleportRequests.put(target.getUniqueId(), request);
 
-        target.sendMessage("You have received a teleport request from " + sender.getName());
+        target.sendMessage(ColorUtil.PREFIX + sender.getName() + " has requested to teleport to you. Type /tpaccept to accept.");
 
         new BukkitRunnable() {
             @Override
@@ -37,17 +39,17 @@ public class TeleportManager {
         TeleportRequest request = teleportRequests.remove(target.getUniqueId());
         if (request != null) {
             if (request.getType() == TeleportType.TPA) {
-                request.getSender().teleport(target);
+                TeleportUtil.teleport(request.getSender(), target.getLocation());
             } else if (request.getType() == TeleportType.TPAHERE) {
-                target.teleport(request.getSender());
+                TeleportUtil.teleport(target, request.getSender().getLocation());
             } else if (request.getType() == TeleportType.TPAALL) {
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     if (!player.equals(request.getSender())) {
-                        player.teleport(request.getSender());
+                        TeleportUtil.teleport(player, request.getSender().getLocation());
                     }
                 }
             }
-            target.sendMessage("You have accepted the teleport request from " + request.getSender().getName());
+            target.sendMessage(ColorUtil.PREFIX + "You have accepted the teleport request from " + request.getSender().getName());
             return true;
         }
         return false;

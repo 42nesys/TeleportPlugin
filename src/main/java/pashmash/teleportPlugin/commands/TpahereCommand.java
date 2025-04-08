@@ -4,7 +4,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import pashmash.teleportPlugin.TeleportType;
+import pashmash.teleportPlugin.util.ColorUtil;
+import pashmash.teleportPlugin.util.TeleportType;
 import pashmash.teleportPlugin.manager.TeleportManager;
 
 public class TpahereCommand implements CommandExecutor {
@@ -22,12 +23,12 @@ public class TpahereCommand implements CommandExecutor {
                 Player target = player.getServer().getPlayer(args[0]);
                 if (target != null) {
                     teleportManager.sendTeleportRequest(player, target, TeleportType.TPAHERE);
-                    player.sendMessage("Teleport request sent to " + target.getName());
+                    player.sendMessage(ColorUtil.PREFIX + "Teleport request sent to " + target.getName());
                 } else {
-                    player.sendMessage("Player not found.");
+                    player.sendMessage(ColorUtil.PREFIX + "That player was not found");
                 }
             } else {
-                player.sendMessage("Usage: /tpahere <player>");
+                player.sendMessage(ColorUtil.PREFIX + "Usage: /tpahere <player>");
             }
         }
         return true;

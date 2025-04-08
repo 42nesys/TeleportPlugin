@@ -2,6 +2,9 @@ name: TeleportPlugin
 version: '1.0'
 main: pashmash.teleportPlugin.TeleportPlugin
 api-version: '1.21'
+authors:
+  - 42ne.sys
+  - VertrauterDavid
 commands:
   tpa:
   tpaall:
