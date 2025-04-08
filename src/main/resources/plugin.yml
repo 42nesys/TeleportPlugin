@@ -1,0 +1,9 @@
+name: TeleportPlugin
+version: '1.0'
+main: pashmash.teleportPlugin.TeleportPlugin
+api-version: '1.21'
+commands:
+  tpa:
+  tpaall:
+  tpaccept:
+  tpahere:
