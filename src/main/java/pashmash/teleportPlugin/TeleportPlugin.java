@@ -16,6 +16,7 @@ public final class TeleportPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         instance = this;
         teleportManager = new TeleportManager(instance);
 

@@ -2,6 +2,7 @@ package pashmash.teleportPlugin.util;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
+import pashmash.teleportPlugin.TeleportPlugin;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,15 +12,9 @@ public class ColorUtil {
     // Credits VertrauterDavid
 
 
-    public static final String ERROR = "&#FF331C";
-    public static final String GRAY = "&7";
-    public static final String PEACH = "&#fcce83";
-    public static final String GREEN = "&#8BC34A";
-    public static final String BLUE = "&#2196F3";
     public static final String RED = "&#ff0000";
-    public static final String RESET = "§7";
     public static final String MAIN = "&#face87";
-    public static final String PREFIX = "§8▏ " + MAIN + "Tidy-Vanilla §8» §7";
+    public static final String PREFIX = TeleportPlugin.getInstance().getConfig().getString("Settings.prefix");
 
     public static Component translate(String message) {
         message = message.replaceAll("&([0-9a-fk-or])", "§$1");
